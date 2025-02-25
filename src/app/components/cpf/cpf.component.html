@@ -1,0 +1,58 @@
+<div class="content-data">
+    <div class="title">Informe o CPF do futuro cooperado (a)</div>
+    <div class="subtitle">Se necessário, você poderá duplicar uma conta existente ou pausar e retomar este cadastro futuramente.
+        Digite apenas os números (sem pontos ou traços).
+    </div>
+
+    <div class="section-cpf">
+        <div class="label">CPF</div>
+        <div class="section-input">
+            <input type="text" 
+            class="input-cpf" 
+            placeholder="000.000.000-00" 
+            maxlength="14" 
+            [(ngModel)]="cpf"
+            [value]="cpf | cpfMask" 
+            (input)="onCpfInput($event)">
+
+            <button class="btn" [class.locked]="locked" (click)="verificarCpf(cpf)">Consultar por CPF</button>
+        </div>
+    </div>
+
+    <div class="error-cpf" *ngIf="erroCpf">        
+        <div class="error-message">CPF inválido. Por favor, digite um CPF válido.</div>
+    </div>
+
+    <div class="container-result" *ngIf="!erroCpf && consultaSucesso">
+
+        <app-card
+            [title]="'Situação cadastral do CPF'"
+            [subtitle]="'Consulta na Receita Federal'"
+            [icon]="'user'"
+            [label]="'Nome'"
+            [text]="userName"
+            [type]="'profile'"
+        ></app-card>
+
+        <app-card
+            [title]="'Conta aplicação'"
+            [subtitle]="'Cooperativa Viacredi'"
+            [icon]="'card'"
+            [label]="'Número da Conta'"
+            [text]="'557932-4'"
+            [type]="'account'"
+            [duplicateOption]="true"
+        ></app-card>
+
+        <app-card
+            [title]="'Conta corrente'"
+            [subtitle]="'Cooperativa Viacredi'"
+            [icon]="'card'"
+            [label]="'Número da Conta'"
+            [text]="'778461-8'"
+            [type]="'account'"
+            [duplicateOption]="true"
+        ></app-card>       
+       
+    </div>
+</div>

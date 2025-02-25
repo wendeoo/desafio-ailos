@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="section-top">
+        <div class="title">{{ title }}</div>
+        <div class="subtitle">{{ subtitle }}</div>
+    </div>
+    <div class="section-mid">
+        <div class="mid-left">
+            <i *ngIf="icon == 'user'" class="pi pi-user"></i>
+            <i *ngIf="icon == 'card'" class="pi pi-credit-card"></i>
+        </div>
+        <div class="mid-right">
+            <div class="label"> {{ label }}</div>
+            <div class="name">{{ text }}</div>
+        </div>
+    </div>
+    <div class="section-bottom">
+        <div class="bottom-left" *ngIf="!duplicateOption">
+            <i *ngIf="type == 'profile'" class="pi pi-check-circle icon-green"></i>
+            <i *ngIf="type == 'account'" class="pi pi-credit-card"></i>
+        </div>
+        <div class="bottom-right" *ngIf="!duplicateOption">
+            <div *ngIf="type == 'profile'" class="label">Situação do CPF</div>
+            <div *ngIf="type == 'profile'" class="name">Regular</div>
+            <div *ngIf="type == 'account'" class="label">Número da Conta</div>
+            <div *ngIf="type == 'account'" class="name">{{ account }}</div>
+        </div>
+        <div *ngIf="duplicateOption" class="account-duplicate">
+            Duplicar conta
+        </div>
+    </div>
+</div>

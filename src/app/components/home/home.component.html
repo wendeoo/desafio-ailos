@@ -1,0 +1,67 @@
+<div class="main">
+    <div class="side-menu">
+        <div class="logo">
+            <img src="assets/images/ailos-logo.jpg" alt="Logo Ailos">            
+        </div>  
+        <i class="pi pi-bars i-home"></i>      
+        <i class="pi pi-search"></i>      
+        <i class="pi pi-star"></i>
+        <i class="pi pi-ellipsis-h"></i>
+        <i class="pi pi-calculator"></i>
+        <i class="pi pi-building-columns"></i>
+    </div>
+
+    <div class="site-content">
+
+        <div class="content-top">        
+            <div class="header">
+                <div class="header-left">
+                    <div class="title">NOVA ADMISSÃO COOPERADO</div>
+                    <div class="subtitle">Cadastro / Admissão do Cooperado / Nova Admissão de Cooperado</div>
+                </div>
+                <div class="header-right">
+                    <i class="pi pi-bell"></i>
+                    <button class="btn-outline round">VIACREDI</button>
+                    <div class="profile">
+                        <div class="profile-image">
+                            <img src="assets/images/foto-perfil.jpg" alt="Imagem Perfil">
+                            <i class="pi pi-cog"></i>
+                        </div>                    
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="progress-container">
+                    <div class="progress-line"></div>                
+                    <div class="progress-step active">
+                        <div class="circle"></div>
+                        <span>Início</span>
+                    </div>                
+                    <div class="progress-step">
+                        <div class="circle"></div>
+                        <span>Documentos</span>
+                    </div>                
+                    <div class="progress-step">
+                        <div class="circle"></div>
+                        <span>Dados cadastrais</span>
+                    </div>                
+                    <div class="progress-step">
+                        <div class="circle"></div>
+                        <span>Admissão</span>
+                    </div>
+                </div>
+
+                <app-cpf (consultaChange)="atualizarConsultaSucesso($event)"></app-cpf>
+                
+            </div>
+        </div>
+
+        <div class="footer">
+            <button *ngIf="consultaSucesso" class="btn">Iniciar nova admissão</button>
+            <button *ngIf="consultaSucesso" class="btn outline">Dicas para abertura da conta</button>
+            <button *ngIf="!consultaSucesso" class="btn outline">Dicas para admissão</button>
+        </div>
+
+    </div>
+</div>
